@@ -9,10 +9,10 @@ int main() {
 	dp1[0] = 0, dp2[0] = 0;	
 	for(ll i = 1; i * (i+1) * (i+2) <= ma * 6; i++) {
 		ll v = i * (i+1) * (i+2) / 6;
-		for(int i = 0; i <= ma-v; i++) {
-			dp1[i+v] = min(dp1[i+v], dp1[i]+1);
+		for(int j = 0; j <= ma-v; j++) {
+			dp1[j+v] = min(dp1[j+v], dp1[j]+1);
 			if(v % 2 != 0) {
-				dp2[i+v] = min(dp2[i+v], dp2[i]+1);
+				dp2[j+v] = min(dp2[j+v], dp2[j]+1);
 			}	
 		}
 	}

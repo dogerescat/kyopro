@@ -7,10 +7,10 @@ typedef vector<ll> vi;
 const ll INF = 1001001001001001001;
 ll f(vvi &dp, vi R, vi C, int l, int r) {
 	if(dp[l][r] != -1) return dp[l][r]; 	
-	if(l >= r) return dp[l][r] = 0;
+	if(r-l <= 1) return dp[l][r] = 0;
 	ll res = INF;
 	for(int m = l+1; m < r; m++) {
-		res = min(res, f(dp, R, C, l, m) + f(dp, R, C, m, r) + R[l]*R[m]*C[r-1]);		
+		res = min(res, f(dp, R, C, l, m) + f(dp, R, C, m, r) + R[l]*C[m-1]*C[r-1]);		
 	}
 	return dp[l][r] = res; 
 }
